@@ -1,0 +1,16 @@
+{
+  "screen1": {
+    "title1": "Disegna",
+    "title2": "Costruisci",
+    "title3": "Vivi",
+    "rect1": "Per le aziende",
+    "rect2": "Per la casa",
+    "rect3": "Restauro",
+    "menu": {
+      "commercial": "Per le aziende",
+      "residental": "Per la casa",
+      "restoration": "Restauro",
+      "contacts": "Contatti"
+    }
+  }
+}

@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+
+@theme {
+  --color-primary: #415167;
+  --color-accent: #C7A17A;
+  --color-accent_light: #F9F5E8;
+  --color-grey: #151D28;
+  --color-grey_light: #EDF0F5;
+
+  --font-display: "Montserrat", "sans-serif";
+  --text-large: 66px;
+  --text-large--line-height: 74px;
+  --text-largetablet: 54px;
+  --text-largetablet--line-height: 70px;
+  --text-largemobile: 44px;
+  --text-largemobile--line-height: 54px;
+  --text-medium: 30px;
+  --text-medium--line-height: 34px;
+  --text-small: 24px;
+  --text-small--line-height: 28px;
+
+   --breakpoint-xs: 20rem;
+
+   --animate-slideRight: slide 1s linear 1;
+   --animate-slideLeft: slide 1s linear reverse 1;
+
+   @keyframes slideRight {
+     0% {
+       transform: translateX(100%)
+     }
+     25%{
+       transform: translateX(75%)
+     }
+     50% {
+       transform: translateX(50%)
+     }
+     75% {
+       transform: translateX(25%)
+     }
+     100% {
+       right: 0
+     }
+   }
+
+   @keyframes slideLeft {
+     0% {
+       right: 0
+     }
+     25%{
+       transform: translateX(25%)
+     }
+     50% {
+       transform: translateX(50%)
+     }
+     75% {
+       transform: translateX(75%)
+     }
+     100% {
+       transform: translateX(100%)
+     }
+   }
+
+}

@@ -1,0 +1,16 @@
+{
+  "screen1": {
+    "title1": "Design",
+    "title2": "Construct",
+    "title3": "Admire",
+    "rect1": "Commercial furniture",
+    "rect2": "Residental furniture",
+    "rect3": "Restoration",
+    "menu": {
+      "commercial": "Commercial furniture",
+      "residental": "Residental furniture",
+      "restoration": "Restoration",
+      "contacts": "Contacts"
+    }
+  }
+}
