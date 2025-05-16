@@ -120,13 +120,21 @@ export default function Screen1() {
       <div
         id='slideMenu'
         className={`
+          md:w-[425px] w-full
           hidden absolute right-0 bg-primary opacity-[.95] shadow-lg
           lg:p-12 sm:p-8 p-4 lg:pr-[200px]
-          text-accent_light lg:text-medium
+          text-accent_light
           `}>
         {menu.map((item, index) => {
           return (
-            <div key={index} className='lg:my-8 my-4'>
+            <div key={index} className={`
+              lg:my-8 my-4 w-fit cursor-pointer
+              relative ml-[6px] hover:ml-0 hover:font-bold
+              transition-all ease-in-out before:transition-[width]
+              before:ease-in-out before:duration-300 before:absolute
+              before:bg-accent_light before:origin-bottom-left before:h-[1px] before:w-0
+              hover:before:w-[100%] before:bottom-[-6px]
+              `}>
               {item}
             </div>
           )
@@ -135,7 +143,7 @@ export default function Screen1() {
 
       <div className={clsx(`
         absolute right-0 flex flex-row
-        lg:mt-12 lg:mr-8 md:mt-8 mt-4 md:mr-4 mr-0 pt-4`,
+        lg:mt-12 lg:mr-8 md:mt-8 mt-4 mr-4 pt-4`,
           {
             'transition-all duration-300 translate-x-[20px] -translate-y-[20px]': openMenu
           },
