@@ -1,16 +1,25 @@
 {
-  "screen1": {
+  "main": {
     "title1": "Disegna",
     "title2": "Costruisci",
     "title3": "Vivi",
-    "rect1": "Per le aziende",
-    "rect2": "Per la casa",
-    "rect3": "Restauro",
+    "commercialSection": "Per le aziende",
+    "residentalSection": "Per la casa",
+    "restorationSection": "Restauro",
+    "callBtn": "Chiama Ora",
+    "phoneNumber": "+39 339 777 7777",
+    "adress": "Viale Duca d'Aosta, 10B, 50051 Castelfiorentino FI",
+    "email": "carvex@carvex.com",
     "menu": {
       "commercial": "Per le aziende",
       "residental": "Per la casa",
       "restoration": "Restauro",
       "contacts": "Contatti"
-    }
+    },
+    "contactUsBtn": "contattaci subito",
+    "contactUs": "Richiedi ulteriori informazioni",
+    "commercialSectionDescription": "Scopri arredi commerciali resistenti e dal design moderno, ideali per uffici, scuole e spazi pubblici. Sedute confortevoli, tavoli funzionali e soluzioni su misura pensate per durare nel tempo e valorizzare ogni ambiente professionale.",
+    "residentalSectionDescription": "Trasforma il tuo spazio abitativo con la nostra collezione di mobili per la casa, progettata con cura. Che tu stia arredando un accogliente appartamento o una spaziosa casa di famiglia, la nostra gamma combina comfort, stile e resistenza per adattarsi a ogni stile di vita. Dai classici senza tempo ai pezzi moderni di grande impatto, ogni articolo è realizzato con materiali di alta qualità e attenzione ai dettagli. Esplora soluzioni per soggiorno, camera da letto, sala da pranzo e ufficio che rendono ogni ambiente unico e personale.",
+    "restorationSectionDescription": "Il nostro servizio di restauro mobili unisce maestria artigianale e passione per il design. Recuperiamo e valorizziamo arredi d’epoca o danneggiati, rispettandone l’autenticità e riportandoli al loro splendore originale. Ogni intervento è curato nei dettagli per garantire risultati durevoli e di alta qualità."
   }
 }

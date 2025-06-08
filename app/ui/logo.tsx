@@ -3,7 +3,7 @@ import { useTranslations } from 'next-intl';
 import clsx from 'clsx';
 
 export default function LogoAndTitle({ largeScrVisible }: { largeScrVisible: boolean }) {
-  const t = useTranslations('screen1');
+  const t = useTranslations('main');
 
   return (
     <div className={clsx(

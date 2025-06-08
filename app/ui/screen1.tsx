@@ -5,13 +5,15 @@ import { useTransition } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { setUserLocale } from '../lib/locale';
 import clsx from 'clsx';
+import Link from 'next/link';
 import LogoAndTitle from '@/app/ui/logo';
 import Projects from '@/app/ui/projects';
+import CallBtn from '@/app/ui/callBtn';
 
 export default function Screen1() {
 
   const locale = useLocale();
-  const t = useTranslations('screen1.menu');
+  const t = useTranslations('main.menu');
   const startTransition = useTransition()[1];
 
   const menu = [t('commercial'), t('residental'), t('restoration'), t('contacts')];
@@ -55,6 +57,7 @@ export default function Screen1() {
     setTimeout(() => {
       menuBtn.classList.add('md:scale-x-50');
     }, 300);
+    document.body.addEventListener('click', close);
   };
   const close = ():void => {
     setOpenMenu(false);
@@ -78,6 +81,7 @@ export default function Screen1() {
     setTimeout(() => {
       menu.classList.add('hidden');
     }, 1000);
+    document.body.removeEventListener('click', close);
   };
   const handleSwitchMenu = ():void => {
     if (openMenu) {
@@ -94,7 +98,7 @@ export default function Screen1() {
 
 
   return (
-    <div className='relative w-screen h-screen overflow-hidden lg:grid grid-cols-10 flex flex-col'>
+    <div className='relative w-screen h-screen lg:grid grid-cols-10 flex flex-col'>
 
       <Projects />
       <div className='col-span-4 lg:h-full h-1/3'>
@@ -112,15 +116,19 @@ export default function Screen1() {
             <source src="/video.mp4" type="video/mp4" />
               Your browser does not support the video tag.
           </video>
+
+          <CallBtn screenSize='tablet' />
         </div>
 
         <LogoAndTitle largeScrVisible={true} />
       </div>
 
+
+
       <div
         id='slideMenu'
         className={`
-          md:w-[425px] w-full
+          md:w-[425px] w-full md:h-auto h-1/3
           hidden absolute right-0 bg-primary opacity-[.95] shadow-lg
           lg:p-12 sm:p-8 p-4 lg:pr-[200px]
           text-accent_light
@@ -135,19 +143,27 @@ export default function Screen1() {
               before:bg-accent_light before:origin-bottom-left before:h-[1px] before:w-0
               hover:before:w-[100%] before:bottom-[-6px]
               `}>
-              {item}
+                <Link href={`#section${index}`}>
+                  {item}
+                </Link>
             </div>
           )
         })}
       </div>
 
       <div className={clsx(`
-        absolute right-0 flex flex-row
+        absolute right-0 flex flex-row justify-between
+        w-2/3
         lg:mt-12 lg:mr-8 md:mt-8 mt-4 mr-4 pt-4`,
           {
             'transition-all duration-300 translate-x-[20px] -translate-y-[20px]': openMenu
           },
         )}>
+        <div>
+          <CallBtn screenSize='pc' />
+        </div>
+
+        <div className='flex flex-row'>
         <button
           id='langBtn'
           onClick={handleSwitchLang}
@@ -181,6 +197,7 @@ export default function Screen1() {
             h-[5px] w-full bg-primary mb-[4px]
           `}>
           </div>
+        </div>
         </div>
       </div>
 

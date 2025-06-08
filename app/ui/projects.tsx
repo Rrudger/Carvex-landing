@@ -4,7 +4,7 @@ import Image from 'next/image';
 import clsx from 'clsx';
 
 export default function Projects() {
-  const t = useTranslations('screen1');
+  const t = useTranslations('main');
 
   const [height, setHeight] = useState(0)
   useEffect(() => {
@@ -17,7 +17,7 @@ export default function Projects() {
       text-small font-semibold
       `}>
 
-      {['rect1', 'rect2', 'rect3'].map((rect) => {
+      {['commercialSection', 'residentalSection', 'restorationSection'].map((rect) => {
 
         return (
           <div
@@ -25,8 +25,8 @@ export default function Projects() {
             className={clsx(
                 'group relative cursor-pointer rotate-45 transition-rotate duration-300 hover:rotate-135 hover:z-50',
                 {
-                  'text-primary': rect !== 'rect2',
-                  'text-accent_light': rect === 'rect2',
+                  'text-primary': rect !== 'residentalSection',
+                  'text-accent_light': rect === 'residentalSection',
                   'size-[300px]': height > 900,
                   'size-[250px]': height > 750,
                   'size-[200px]': height > 600,
@@ -38,9 +38,9 @@ export default function Projects() {
               transition-trasform duration-300
               group-hover:-translate-x-[50px] group-hover:-translate-y-[50px]`,
                 {
-                  'bg-accent_light': rect === 'rect1',
-                  'bg-primary': rect === 'rect2',
-                  'bg-accent': rect === 'rect3',
+                  'bg-accent_light': rect === 'commercialSection',
+                  'bg-primary': rect === 'residentalSection',
+                  'bg-accent': rect === 'restorationSection',
                   'size-[300px]': height > 900,
                   'size-[250px]': height > 750,
                   'size-[200px]': height > 600,

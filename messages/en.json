@@ -1,16 +1,25 @@
 {
-  "screen1": {
+  "main": {
     "title1": "Design",
     "title2": "Construct",
     "title3": "Admire",
-    "rect1": "Commercial furniture",
-    "rect2": "Residental furniture",
-    "rect3": "Restoration",
+    "commercialSection": "Commercial furniture",
+    "residentalSection": "Residental furniture",
+    "restorationSection": "Restoration",
+    "callBtn": "Call Us",
+    "phoneNumber": "+39 339 777 7777",
+    "adress": "Viale Duca d'Aosta, 10B, 50051 Castelfiorentino FI",
+    "email": "carvex@carvex.com",
     "menu": {
       "commercial": "Commercial furniture",
       "residental": "Residental furniture",
       "restoration": "Restoration",
       "contacts": "Contacts"
-    }
+    },
+    "contactUsBtn": "contact us now",
+    "contactUs": "Request more information",
+    "commercialSectionDescription": "Discover durable, stylish commercial furniture designed for high-traffic spaces. From sleek office seating to functional breakroom tables, our pieces blend comfort with performance—perfect for businesses, schools, and public areas. Built to last and crafted to impress.",
+    "residentalSectionDescription": "Transform your living space with our thoughtfully designed residential furniture collection. Whether you're furnishing a cozy apartment or a spacious family home, our range combines comfort, style, and durability to suit every lifestyle. From timeless classics to modern statement pieces, each item is crafted with high-quality materials and attention to detail. Explore living room, bedroom, dining, and home office solutions that make every room feel uniquely yours.",
+    "restorationSectionDescription": "Our furniture restoration service combines skilled craftsmanship with a deep respect for original design. We revive and enhance antique or damaged pieces, carefully preserving their character while restoring their beauty and function. Every detail is handled with precision to deliver lasting, high-quality results."
   }
 }
