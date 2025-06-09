@@ -16,6 +16,7 @@ export default function Section({ section, index, image, setImage }: {
   const handeSwitchImage = (direction: string) => () => {
     const curImage = document.getElementById(`${section}Image`)!;
     if (direction === 'next') {
+      console.log('next animation')
       setImage(image === 2 ? 0 : image + 1);
       curImage.classList.add('animate-[slideNext_1s_linear_1]')
       setTimeout(() => {
