@@ -11,14 +11,12 @@ import Projects from '@/app/ui/projects';
 import CallBtn from '@/app/ui/callBtn';
 
 export default function Screen1() {
-
   const locale = useLocale();
   const t = useTranslations('main.menu');
-  const startTransition = useTransition()[1];
-
   const menu = [t('commercial'), t('residental'), t('restoration'), t('contacts')];
 
-  const handleSwitchLang = ():void => {
+  const startTransition = useTransition()[1];
+  const switchLang = () => {
     const btn = document.getElementById('langBtn')!;
     btn.classList.remove('opacity-100');
     btn.classList.add('-translate-y-full', 'transform', 'transition-transform', 'duration-300');
@@ -32,11 +30,10 @@ export default function Screen1() {
         setUserLocale(locale === 'en' ? 'it' : 'en');
       });
     }, 450);
-  }
+  };
 
-  const [openMenu, setOpenMenu] = useState<boolean>(false);
-  const open = ():void => {
-    setOpenMenu(true);
+  const [menuOpened, setOpenMenu] = useState<boolean>(false);
+  const open = () => {
     const [menu, menuBtn, bar1, bar2, bar3] = [
       document.getElementById('slideMenu')!,
       document.getElementById('menuBtn')!,
@@ -49,17 +46,17 @@ export default function Screen1() {
     bar2.classList.add('transform', 'transition-opacity', 'duration-300', 'opacity-0');
     bar3.classList.remove('bg-primary');
     bar3.classList.add('bg-accent_light', 'transform', 'transition-all', 'duration-300', 'md:rotate-[22deg]', 'rotate-[34deg]', 'origin-bottom-right');
-
     menu.classList.remove('hidden');
     menu.classList.remove('animate-[slideLeft_1s_linear_1]');
     menu.classList.add('animate-[slideRight_1s_linear_1]');
-
+    setOpenMenu(true);
     setTimeout(() => {
       menuBtn.classList.add('md:scale-x-50');
     }, 300);
     document.body.addEventListener('click', close);
   };
-  const close = ():void => {
+  const close = () => {
+    document.body.removeEventListener('click', close);
     setOpenMenu(false);
     const [menu, menuBtn, bar1, bar2, bar3] = [
       document.getElementById('slideMenu')!,
@@ -74,17 +71,14 @@ export default function Screen1() {
     bar2.classList.remove('opacity-0')
     bar3.classList.remove('md:rotate-[22deg]', 'rotate-[34deg]');
     bar3.classList.add('bg-primary');
-
-
     menu.classList.remove('animate-[slideRight_1s_linear_1]');
     menu.classList.add('animate-[slideLeft_1s_linear_1]');
     setTimeout(() => {
       menu.classList.add('hidden');
-    }, 1000);
-    document.body.removeEventListener('click', close);
+    }, 900);
   };
   const handleSwitchMenu = ():void => {
-    if (openMenu) {
+    if (menuOpened) {
       close()
     } else {
       open()
@@ -96,14 +90,13 @@ export default function Screen1() {
     video.play();
   };
 
-
   return (
     <div className='relative w-screen h-screen lg:grid grid-cols-10 flex flex-col'>
 
       <Projects />
+
       <div className='col-span-4 lg:h-full h-1/3'>
         <LogoAndTitle largeScrVisible={false} />
-
       </div>
 
       <div className='relative lg:h-full h-2/3 col-span-6 bg-accent/75 bg-linear-to-bl flex items-center'>
@@ -122,8 +115,6 @@ export default function Screen1() {
 
         <LogoAndTitle largeScrVisible={true} />
       </div>
-
-
 
       <div
         id='slideMenu'
@@ -156,7 +147,7 @@ export default function Screen1() {
         w-2/3
         lg:mt-12 lg:mr-8 md:mt-8 mt-4 mr-4 pt-4`,
           {
-            'transition-all duration-300 translate-x-[20px] -translate-y-[20px]': openMenu
+            'transition-all duration-300 translate-x-[20px] -translate-y-[20px]': menuOpened
           },
         )}>
         <div>
@@ -166,14 +157,14 @@ export default function Screen1() {
         <div className='flex flex-row'>
         <button
           id='langBtn'
-          onClick={handleSwitchLang}
+          onClick={switchLang}
           className={clsx(
               `text-medium text-shadow-lg font-black
               hover:scale-110 trasform transition-all duration-300
               mr-4 h-[35px] cursor-pointer`,
               {
-                'text-primary': !openMenu,
-                'text-accent_light': openMenu
+                'text-primary': !menuOpened,
+                'text-accent_light': menuOpened
               },
             )}>
           {locale}
@@ -200,10 +191,6 @@ export default function Screen1() {
         </div>
         </div>
       </div>
-
-
-
-
 
     </div>
   )

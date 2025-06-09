@@ -17,13 +17,12 @@ export default function CallBtn({ screenSize }: { screenSize: string }) {
             px-4 py-2
             flex flex-row group
           `}>
-
           <p className='group-hover:hidden'>{t('callBtn')}</p>
           <p className='group-hover:block hidden'>{t('phoneNumber')}</p>
         </button>
       </div>
     )
-  }
+  };
 
   return (
     <div className={`
@@ -41,11 +40,9 @@ export default function CallBtn({ screenSize }: { screenSize: string }) {
           px-4 py-2
           flex flex-row group
         `}>
-
         <p className={btnState === 'btn' ? '' : 'hidden'}>{t('callBtn')}</p>
         <p className={btnState === 'btn' ? 'hidden' : ''}>{t('phoneNumber')}</p>
       </button>
-
     </div>
   )
 };

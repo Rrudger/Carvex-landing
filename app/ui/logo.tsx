@@ -6,8 +6,7 @@ export default function LogoAndTitle({ largeScrVisible }: { largeScrVisible: boo
   const t = useTranslations('main');
 
   return (
-    <div className={clsx(
-        '',
+    <div className={clsx('',
         {
           'h-full w-1/4 lg:flex flex-col justify-between hidden absolute -inset-x-[325px]': largeScrVisible,
           'lg:hidden block': !largeScrVisible,
@@ -46,4 +45,4 @@ export default function LogoAndTitle({ largeScrVisible }: { largeScrVisible: boo
       </div>
     </div>
   )
-}
+};
