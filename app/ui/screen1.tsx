@@ -33,18 +33,6 @@ export default function Screen1() {
   };
 
   const [menuOpened, setOpenMenu] = useState<boolean>(false);
-  const closeIf = (e) => {
-  //console.log(menuOpened)
-    if (e.target.id.slice(0,4) !== 'menu') {
-      if (menuOpened) {
-        console.log('clicked while menu open')
-      } else {
-        console.log('click while menu closed')
-      }
-    }
-
-
-  };
   const open = () => {
     const [menu, menuBtn, bar1, bar2, bar3] = [
       document.getElementById('slideMenu')!,
@@ -65,7 +53,6 @@ export default function Screen1() {
     setTimeout(() => {
       menuBtn.classList.add('md:scale-x-50');
     }, 300);
-    document.body.addEventListener('click', closeIf);
   };
   const close = () => {
     setOpenMenu(false);
