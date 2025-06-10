@@ -33,6 +33,18 @@ export default function Screen1() {
   };
 
   const [menuOpened, setOpenMenu] = useState<boolean>(false);
+  const closeIf = (e) => {
+  //console.log(menuOpened)
+    if (e.target.id.slice(0,4) !== 'menu') {
+      if (menuOpened) {
+        console.log('clicked while menu open')
+      } else {
+        console.log('click while menu closed')
+      }
+    }
+
+
+  };
   const open = () => {
     const [menu, menuBtn, bar1, bar2, bar3] = [
       document.getElementById('slideMenu')!,
@@ -53,10 +65,9 @@ export default function Screen1() {
     setTimeout(() => {
       menuBtn.classList.add('md:scale-x-50');
     }, 300);
-    document.body.addEventListener('click', close);
+    document.body.addEventListener('click', closeIf);
   };
   const close = () => {
-    document.body.removeEventListener('click', close);
     setOpenMenu(false);
     const [menu, menuBtn, bar1, bar2, bar3] = [
       document.getElementById('slideMenu')!,
@@ -79,9 +90,9 @@ export default function Screen1() {
   };
   const handleSwitchMenu = ():void => {
     if (menuOpened) {
-      close()
+      close();
     } else {
-      open()
+      open();
     };
   };
 
@@ -134,7 +145,7 @@ export default function Screen1() {
               before:bg-accent_light before:origin-bottom-left before:h-[1px] before:w-0
               hover:before:w-[100%] before:bottom-[-6px]
               `}>
-                <Link href={`#section${index}`}>
+                <Link onClick={close} href={`#section${index}`}>
                   {item}
                 </Link>
             </div>
